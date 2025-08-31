@@ -5,17 +5,19 @@ const nextConfig = {
   eslint: {
     ignoreDuringBuilds: true,
   },
+  webpack: (webpackConfig) => {
+    webpackConfig.resolve.extensionAlias = {
+      '.cjs': ['.cts', '.cjs'],
+      '.js': ['.ts', '.tsx', '.js', '.jsx'],
+      '.mjs': ['.mts', '.mjs'],
+    }
 
-  // // Your Next.js config here
-  // webpack: (webpackConfig) => {
-  //   webpackConfig.resolve.extensionAlias = {
-  //     '.cjs': ['.cts', '.cjs'],
-  //     '.js': ['.ts', '.tsx', '.js', '.jsx'],
-  //     '.mjs': ['.mts', '.mjs'],
-  //   }
+    return webpackConfig
+  },
+  images: {
+    unoptimized: true,
+  },
 
-  //   return webpackConfig
-  // },
     output: 'standalone',
 }
 
