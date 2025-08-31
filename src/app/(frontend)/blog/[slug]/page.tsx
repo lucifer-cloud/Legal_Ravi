@@ -4,7 +4,6 @@ import { useParams } from 'next/navigation'
 import { useEffect, useState } from 'react'
 import PageHeader from '../../components/common/PageHeader'
 import Newsletter from '../../components/common/Newsletter'
-import Image from 'next/image'
 import Link from 'next/link'
 import { RichText } from '../../components/RichText'
 
@@ -78,7 +77,7 @@ export default function BlogDetails() {
           <div className="blog_details">
             <div className="post_img">
               {blog.featuredMedia?.url && (
-                <Image
+                <img
                   src={blog.featuredMedia.url}
                   width={1170}
                   height={617}
@@ -106,7 +105,7 @@ export default function BlogDetails() {
                   <div className="author_div">
                     {blog.authorImage?.url && (
                       <div className="author">
-                        <Image
+                        <img
                           alt={blog.authorName}
                           src={blog.authorImage.url}
                           width={80}
@@ -135,7 +134,7 @@ export default function BlogDetails() {
                           <li className="recent_post_item" key={b.id}>
                             <div className="recent_post_image">
                               {b?.featuredMedia?.url && (
-                                <Image
+                                <img
                                   className="primary_img"
                                   src={b?.featuredMedia?.url}
                                   width={125}

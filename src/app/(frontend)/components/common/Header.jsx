@@ -1,6 +1,5 @@
 "use client"; // if inside app/ directory
 import Link from "next/link";
-import Image from "next/image";
 import React from "react";
 
 const Header = () => {
@@ -17,7 +16,7 @@ const Header = () => {
       <div className="header_inner">
         <div className="header_logo">
           <Link href="/" passHref>
-            <Image src="/images/logo.svg" alt="logo" width={150} height={50} />
+            <img src="/images/logo.svg" alt="logo" width={150} height={50} />
           </Link>
         </div>
 

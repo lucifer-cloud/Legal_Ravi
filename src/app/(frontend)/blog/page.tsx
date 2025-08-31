@@ -5,7 +5,7 @@ import PageHeader from '../components/common/PageHeader'
 import Newsletter from '../components/common/Newsletter'
 import BlogChunk from '../components/section/BlogChunk'
 import Link from 'next/link'
-import Image from 'next/image'
+
 interface PaginationProps {
   totalPages: number
   currentPage: number
@@ -16,7 +16,6 @@ interface PaginationProps {
 const Pagination = ({ totalPages, currentPage, onPageChange }: PaginationProps) => {
   const pageNumbers = []
 
-  // Show first 2 pages, last 2 pages, and 2 pages around current
   for (let i = 1; i <= totalPages; i++) {
     if (
       i === 1 ||
@@ -26,9 +25,7 @@ const Pagination = ({ totalPages, currentPage, onPageChange }: PaginationProps) 
       (i >= currentPage - 1 && i <= currentPage + 1)
     ) {
       pageNumbers.push(i)
-    } else if (
-      pageNumbers[pageNumbers.length - 1] !== '...' // prevent consecutive ellipsis
-    ) {
+    } else if (pageNumbers[pageNumbers.length - 1] !== '...') {
       pageNumbers.push('...')
     }
   }
@@ -72,7 +69,7 @@ const Pagination = ({ totalPages, currentPage, onPageChange }: PaginationProps) 
   )
 }
 
-// Sidebar Widgets (unchanged)
+// Sidebar Widgets
 const SearchWidget = () => (
   <div id="search" className="widget widget_search">
     <div className="sidebar_search">
@@ -93,7 +90,7 @@ const AuthorWidget = () => (
       <span className="title_line"></span>
     </h4>
     <div className="sidebar_author">
-      <Image src="/images/author.png" alt="Author" width={244} height={268} />
+      <img src="/images/author.png" alt="Author" width={244} height={268} />
       <p className="intro">
         Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
         laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi
@@ -143,7 +140,7 @@ const RecentPostsWidget = () => {
           {posts.map((post, index) => (
             <li key={index} className="recent_post_item">
               <div className="recent_post_image">
-                <Image src={post.image} alt={post.title} width={125} height={82} />
+                <img src={post.image} alt={post.title} width={125} height={82} />
               </div>
               <div className="recent_post_content">
                 <h5>
@@ -194,6 +191,7 @@ const CategoriesWidget = () => {
     </div>
   )
 }
+
 const TagsWidget = () => {
   const [tags, setTags] = useState<any[]>([])
 
@@ -234,7 +232,7 @@ export default function Blog() {
   const [page, setPage] = useState(1)
   const [totalPages, setTotalPages] = useState(1)
   const [loading, setLoading] = useState(false)
-  const limit = 6 // posts per page
+  const limit = 6
 
   useEffect(() => {
     const fetchPosts = async () => {

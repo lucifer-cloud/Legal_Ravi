@@ -3,7 +3,6 @@
 import { useParams } from 'next/navigation'
 import PageHeader from '../../components/common/PageHeader'
 import Newsletter from '../../components/common/Newsletter'
-import Image from 'next/image'
 import Link from 'next/link'
 import { useRef } from 'react'
 
@@ -97,7 +96,7 @@ export default function PracticeAreaDetails() {
                             <div className="ytplay_btn" onClick={handlePlayClick}>
                               <i className="ion-play"></i>
                             </div>
-                            <Image
+                            <img
                               src="/images/bv.png"
                               width={600}
                               height={400}
@@ -134,7 +133,7 @@ export default function PracticeAreaDetails() {
 
                     <div className="project_contact">
                       <div className="logo">
-                        <Image
+                        <img
                           src="/images/logo_inner.png"
                           width={200}
                           height={60}
@@ -143,7 +142,7 @@ export default function PracticeAreaDetails() {
                       </div>
                       <div className="project_contact_info">
                         <h4>Ensuring Justice Is our Motto</h4>
-                        <Image src="/images/wmen.png" width={250} height={250} alt="Legal team" />
+                        <img src="/images/wmen.png" width={250} height={250} alt="Legal team" />
                       </div>
                       <div className="contact_inner">
                         <div className="contact_box">
