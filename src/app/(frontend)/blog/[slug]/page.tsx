@@ -31,7 +31,7 @@ export default function BlogDetails() {
       try {
         // Fetch single blog by slug
         const res = await fetch(
-          `${process.env.NEXT_PUBLIC_PAYLOAD_URL}/api/blogs?where[slug][equals]=${slug}`,
+          `/api/blogs?where[slug][equals]=${slug}`,
           { cache: 'no-store' }, // disable caching in dev
         )
         const data = await res.json()
@@ -39,7 +39,7 @@ export default function BlogDetails() {
 
         // Fetch recent posts
         const resRecent = await fetch(
-          `${process.env.NEXT_PUBLIC_PAYLOAD_URL}/api/blogs?limit=5&sort=-date`,
+          `/api/blogs?limit=5&sort=-date`,
         )
         const recentData = await resRecent.json()
         setRecentPosts(recentData.docs)

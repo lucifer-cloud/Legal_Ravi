@@ -162,7 +162,7 @@ const CategoriesWidget = () => {
   useEffect(() => {
     const fetchCategories = async () => {
       try {
-        const res = await fetch(`${process.env.NEXT_PUBLIC_PAYLOAD_URL}/api/categories?limit=50`)
+        const res = await fetch(`/api/categories?limit=50`)
         const data = await res.json()
         setCategories(data.docs || [])
       } catch (error) {
@@ -198,7 +198,7 @@ const TagsWidget = () => {
   useEffect(() => {
     const fetchTags = async () => {
       try {
-        const res = await fetch(`${process.env.NEXT_PUBLIC_PAYLOAD_URL}/api/tags?limit=50`)
+        const res = await fetch(`/api/tags?limit=50`)
         const data = await res.json()
         setTags(data.docs || [])
       } catch (error) {
@@ -239,7 +239,7 @@ export default function Blog() {
       setLoading(true)
       try {
         const res = await fetch(
-          `${process.env.NEXT_PUBLIC_PAYLOAD_URL}/api/blogs?limit=${limit}&page=${page}&depth=2`,
+          `/api/blogs?limit=${limit}&page=${page}&depth=2`,
           { cache: 'no-store' },
         )
         const data = await res.json()
